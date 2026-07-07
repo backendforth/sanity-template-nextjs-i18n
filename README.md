@@ -165,7 +165,7 @@ Per-package: `pnpm --filter <web|studio> run <script>`.
 
 - **Biome** — root [`biome.json`](biome.json) is the single source of truth. `web/` and `studio/` call Biome via `pnpm --workspace-root exec biome …`; Studio uses a 2-space override, the rest of the repo is tabs.
 - **Husky** — `.husky/pre-commit` runs `pnpm run format`; `.husky/pre-push` runs `pnpm run format && pnpm run typecheck`.
-- **GitHub Actions** — `.github/workflows/ci.yml` runs `pnpm run format` (Biome `check --write`) + a `git diff --exit-code` guard + `pnpm run typecheck` on Node 20 & 22, `pnpm studio:generate` and `pnpm --filter web run generate` with diff guards on the committed typegen artifacts, plus `next build` and `sanity build` smokes. `.github/workflows/template-validate.yml` runs [`sanity-io/template-validator`](https://github.com/sanity-io/template-validator) so the repo stays consumable via `npm create sanity -- --template`.
+- **GitHub Actions** — `.github/workflows/ci.yml` runs `pnpm run format` (Biome `check --write`) + a `git diff --exit-code` guard + `pnpm run typecheck` on Node 22, `pnpm studio:generate` and `pnpm --filter web run generate` with diff guards on the committed typegen artifacts, plus `next build` and `sanity build` smokes. `.github/workflows/template-validate.yml` runs [`sanity-io/template-validator`](https://github.com/sanity-io/template-validator) so the repo stays consumable via `npm create sanity -- --template`.
 - **Dependabot** — weekly npm updates, Sanity plugins grouped, `@types/node` major bumps explicitly ignored (typings track Node 22 LTS).
 - **TypeScript** — strict, ES2022 target. Root `pnpm typecheck` walks every workspace package's own `typecheck` script.
 - **Commit hygiene** — `.DS_Store`, `*.tsbuildinfo`, `coverage/`, and editor caches under `.cursor/` are ignored; the committed `.cursor/rules/` folder (Cursor IDE rules) is explicitly re-included. See root `.gitignore`.
@@ -209,7 +209,7 @@ Everything is standard Next.js + Sanity — mirror the env vars and you're done.
 
 ## Requirements
 
-- **Node.js** LTS — 20 minimum, 22 recommended (CI tests both).
+- **Node.js** 22+ (LTS) — Node 20 is EOL since April 2026.
 - **pnpm** 10 (pinned in root `package.json` `packageManager`).
 - **Sanity project** with a **project id**.
 - **(optional)** Mux API tokens for video uploads.

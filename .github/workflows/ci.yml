@@ -11,12 +11,8 @@ concurrency:
 
 jobs:
   verify:
-    name: format • typecheck (Node ${{ matrix.node }})
+    name: format • typecheck
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        node: ["20", "22"]
     steps:
       - uses: actions/checkout@v4
 
@@ -24,7 +20,10 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          # Single Node line: Node 20 is EOL since April 2026, and tsc/Biome
+          # results don't vary by Node version — runtime compat is covered by
+          # the build jobs.
+          node-version: "22"
           cache: "pnpm"
 
       - run: pnpm install --frozen-lockfile
