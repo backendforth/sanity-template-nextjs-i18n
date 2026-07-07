@@ -1,0 +1,22 @@
+name: Validate Sanity template
+
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+
+concurrency:
+  group: template-validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: template validator
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Guarantees the repo stays consumable via
+      # `npm create sanity -- --template backendforth/sanity-template-nextjs-i18n`:
+      # monorepo detection, env templates, Sanity deps, README "Getting Started".
+      - uses: sanity-io/template-validator@v3

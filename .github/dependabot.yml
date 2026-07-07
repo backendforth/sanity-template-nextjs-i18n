@@ -1,0 +1,33 @@
+version: 2
+
+# One pipeline on `main`:
+#   - monthly schedule (first Monday 06:00 CET)
+#   - one catch-all `all-non-major` group bundles every minor + patch
+#     across the workspace into a single PR per run; majors stay
+#     individual for manual review (e.g. Next 16→17, React 19→20)
+#   - `@types/node` major bumps ignored (pinned to Node 22 LTS)
+#
+# Security advisories are NOT schedule-gated and arrive immediately
+# regardless of the monthly cadence.
+
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: monthly
+      day: monday
+      time: "06:00"
+      timezone: "Europe/Berlin"
+    open-pull-requests-limit: 5
+    groups:
+      all-non-major:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+    ignore:
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+    labels:
+      - "dependencies"

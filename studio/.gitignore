@@ -1,0 +1,13 @@
+# Used by Biome (vcs.useIgnoreFile) and local studio tooling.
+node_modules/
+dist/
+.sanity/
+.env
+.env.local
+.env.*.local
+
+# TypeScript incremental build cache
+*.tsbuildinfo
+
+# Local prod→dev dataset export tarball (sync-prod-to-dev script)
+.sync-tmp/

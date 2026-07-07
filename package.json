@@ -1,0 +1,45 @@
+{
+	"name": "sanity-template-nextjs-i18n",
+	"version": "1.0.0",
+	"description": "Next.js + Sanity template — module pattern, field-level i18n with fallback chain, Visual Editing",
+	"private": true,
+	"scripts": {
+		"lint": "biome check .",
+		"format": "biome check --write .",
+		"validate": "sanity-template-validate",
+		"typecheck": "pnpm --stream -r run typecheck",
+		"strip-readmes": "pnpm --filter @repo/strip-readmes run strip",
+		"strip-readmes:dry-run": "pnpm --filter @repo/strip-readmes run strip:dry-run",
+		"gen:module": "pnpm --filter @repo/scaffold-module run gen --",
+		"check:wiring": "pnpm --filter @repo/check-wiring run check",
+		"prepare": "husky",
+		"//dev": "Starts both web (3000) and studio (3333) in parallel — comment out one filter or use `web:dev`/`studio:dev` to run only one.",
+		"dev": "pnpm --stream -r run dev",
+		"web:dev": "pnpm --filter web run dev",
+		"studio:dev": "pnpm --filter studio run dev",
+		"build": "pnpm --stream -r run build",
+		"studio:build": "pnpm --filter studio run build",
+		"studio:deploy": "pnpm --filter studio run deploy",
+		"studio:generate": "pnpm --filter studio run generate",
+		"studio:sync-prod-to-dev": "pnpm --filter studio run sync:prod-to-dev",
+		"update": "pnpm up --stream -r",
+		"studio:update": "pnpm up --filter studio"
+	},
+	"author": "backendforth",
+	"license": "MIT",
+	"engines": {
+		"node": ">=20.0.0"
+	},
+	"pnpm": {
+		"//overrides": "magicast pin avoids the older transitive 0.2.x version pulled in by some Sanity tooling, which lacks the `parseExpression` API used downstream. Re-evaluate when removing — drop the override and run `pnpm why magicast` to confirm only ^0.3 versions remain.",
+		"overrides": {
+			"magicast": "^0.3.5"
+		}
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.0",
+		"@sanity/template-validator": "^3.1.0",
+		"husky": "^9.1.7"
+	},
+	"packageManager": "pnpm@10.21.0"
+}

@@ -1,0 +1,69 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"includes": ["**", "!**/README.md", "!**/sanity.types.gen.ts"]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		}
+	},
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double"
+		}
+	},
+	"assist": {
+		"enabled": true,
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	},
+	"overrides": [
+		{
+			"includes": ["studio/**"],
+			"formatter": {
+				"indentStyle": "space",
+				"indentWidth": 2
+			}
+		},
+		{
+			"includes": ["web/src/assets/styles/**/*.css"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noUnknownFunction": "off"
+					}
+				}
+			}
+		},
+		{
+			"includes": ["web/src/assets/styles/typography/typography.css"],
+			"linter": {
+				"rules": {
+					"suspicious": {
+						"noDuplicateProperties": "off"
+					}
+				}
+			}
+		}
+	]
+}
