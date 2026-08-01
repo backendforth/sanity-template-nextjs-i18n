@@ -36,6 +36,6 @@
     "@sanity/client": "^7.23.0",
     "@types/node": "^22.20.0",
     "@types/react": "^19.2.17",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   }
 }
