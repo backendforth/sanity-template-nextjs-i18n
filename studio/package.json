@@ -17,25 +17,25 @@
   },
   "dependencies": {
     "@repo/sanity-dataset-resolve": "workspace:*",
-    "@sanity/code-input": "^7.3.3",
-    "@sanity/dashboard": "^6.0.14",
-    "@sanity/icons": "^5.2.1",
+    "@sanity/code-input": "^7.3.14",
+    "@sanity/dashboard": "^6.0.22",
+    "@sanity/icons": "^5.2.3",
     "@sanity/image-url": "^2.1.1",
-    "@sanity/vision": "^6.7.0",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
+    "@sanity/vision": "^6.20.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "rxjs": "^7.8.2",
-    "sanity": "^6.7.0",
-    "sanity-plugin-internationalized-array": "^5.1.24",
+    "sanity": "^6.20.0",
+    "sanity-plugin-internationalized-array": "^5.3.9",
     "sanity-plugin-media": "^5.0.11",
     "sanity-plugin-mux-input": "^4.1.6",
     "sanity-plugin-netlify": "^1.4.0",
-    "styled-components": "^6.4.4"
+    "styled-components": "^6.6.0"
   },
   "devDependencies": {
     "@sanity/client": "^7.25.0",
-    "@types/node": "^22.20.1",
-    "@types/react": "^19.2.17",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
     "typescript": "^6.0.3"
   }
 }
