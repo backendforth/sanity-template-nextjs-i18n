@@ -37,7 +37,7 @@
 		"groq-js": "^1.30.3",
 		"postcss-calc": "^10.1.1",
 		"postcss-functions": "^4.0.2",
-		"postcss-import": "^16.1.1",
+		"postcss-import": "^17.0.1",
 		"postcss-nested-ancestors": "^3.0.0",
 		"sanity": "^6.7.0",
 		"tailwindcss": "^4.3.3",
